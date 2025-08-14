@@ -3,62 +3,72 @@ import React from 'react'
 import { FiGithub, FiExternalLink } from 'react-icons/fi'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-export default function Projects () {
+export default function Projects() {
   const projectsData = [
     {
-      image: '/project1.png',
-      projectName: 'Vibe',
-      projectLink: 'https://github.com/Anubhav6205/Vibe',
-      projectDescription:
-        'A modern chat app built with React, Material UI, and real-time communication using Socket.io. Users can easily sign up with their Google ID and chat with loved ones in a visually stunning interface. It supports file sharing (photos, PDFs, videos) and allows users to personalize their own about section.',
-      projectTech: [
-        'React.Js',
-        'ContextAPI',
-        'Socket.io',
-        'Material UI',
-        'Node.Js',
-        'MongoDB'
+      "image": "/project1.png",
+      "projectName": "Full-Stack DevOps Deployment Flow",
+      "projectLink": "https://github.com/Anubhav6205/cicd-to-eks-with-monitoring",
+      "projectDescription": "A complete CI/CD pipeline with Jenkins, SonarQube, OWASP, and Trivy scans, deploying containerized apps to AWS EKS with Terraform. Includes monitoring via Prometheus & Grafana for full observability.",
+      "projectTech": [
+        "Jenkins",
+        "SonarQube",
+        "OWASP Dependency-Check",
+        "Trivy",
+        "Docker",
+        "AWS EKS",
+        "Terraform",
+        "Prometheus",
+        "Grafana"
       ],
-      projectExternalLinks: {
-        github: '',
-        externalLink: 'https://github.com/Anubhav6205/Vibe'
+      "projectExternalLinks": {
+        "github": "https://github.com/Anubhav6205/cicd-to-eks-with-monitoring",
+        "externalLink": "https://github.com/Anubhav6205/cicd-to-eks-with-monitoring"
+      }
+    }
+    , {
+      "image": "/project2.webp",
+      "projectName": "AWS Microservices Migration & Containerization",
+      "projectLink": "https://anubhavinsights.hashnode.dev/deploy-applications-on-aws-a-step-by-step-guide-to-ec2-elb-route-53-and-more",
+      "projectDescription": "Migrated a Spring-based microservices stack to AWS (VPC, IAM, TLS, DNS) using EC2, ELB, Route 53, and ACM. Containerized with Docker to standardize builds, improve scalability, and reduce drift across environments.",
+      "projectTech": [
+        "Spring",
+        "RabbitMQ",
+        "Memcached",
+        "Tomcat",
+        "MySQL",
+        "AWS EC2/ELB/Route 53/ACM",
+        "Docker",
+        "Custom AMIs"
+      ],
+      "projectExternalLinks": {
+        "github": "",
+        "externalLink": "https://anubhavinsights.hashnode.dev/deploy-applications-on-aws-a-step-by-step-guide-to-ec2-elb-route-53-and-more"
       }
     },
     {
-      image: '/project2.png',
-      projectName: 'KIINECT',
-      projectLink: 'https://github.com/Anubhav6205/KIInect',
-      projectDescription:
-        'The Ultimate Campus Experience for KIITians! Connect, collaborate, and share effortlessly. Ignite discussions, discover new horizons, and foster meaningful connections. With stunning UI/UX and practical utilities, Kiinect amplifies your journey at KIIT, creating a vibrant community for growth and engagement.',
-      projectTech: [
-        'React.Js',
-        'Redux Toolkit',
-        'Node.Js',
-        'MongoDB',
-        'Google Auth'
+      "image": "/project3.png",
+      "projectName": "Nest — Rental Marketplace",
+      "projectLink": "https://github.com/Anubhav6205/Nest",
+      "projectDescription": "A secure rental marketplace connecting landlords and tenants. Users can list properties, chat in-app, view geocoded maps, receive email notifications, and initiate payments — all with role-based access control and robust JDBC-backed data management.",
+      "projectTech": [
+        "Angular 17",
+        "Spring Boot",
+        "JDBC",
+        "JWT",
+        "Google Maps API",
+        "MongoDB"
       ],
-      projectExternalLinks: {
-        github: '',
-        externalLink: 'https://github.com/Anubhav6205/KIInect'
-      }
-    },
-    {
-      image: '/project3.png',
-      projectName: 'Scroll Scape 3D',
-      projectLink: 'https://github.com/Anubhav6205/ScrollScape3D',
-      projectDescription:
-        'A captivating 3D experience! Mesmerizing scroll effects, dynamic color changes, and a rotating planeMesh create a stunning ridged structure. With directional lighting, this immersive web page brings interactivity and visual aesthetics together',
-      projectTech: ['Three.Js', 'Gsap', 'dat.gui', 'OrbitControls'],
-      projectExternalLinks: {
-        github: '',
-        externalLink: 'https://github.com/Anubhav6205/ScrollScape3D'
+      "projectExternalLinks": {
+        "github": "https://github.com/Anubhav6205/Nest",
+        "externalLink": "https://github.com/Anubhav6205/Nest"
       }
     }
   ]
   return (
     <div className='projects' id='work'>
       <div className='title'>
-        <h2>Some Things I’ve Built</h2>
+        <h2>A Glimpse of My Work</h2>
       </div>
       <div className='projects-container'>
         {projectsData.map(
@@ -85,7 +95,6 @@ export default function Projects () {
                   transition={{ duration: 1 }}
                   viewport={{ once: true }}
                 >
-                  <p className='project-info-overline'>Featured Project</p>
                   <h3 className='project-info-title'>{projectName}</h3>
                   <div className='project-info-description'>
                     <p>{projectDescription}</p>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { AiOutlineGithub } from 'react-icons/ai'
 import { FiLinkedin, FiTwitter } from 'react-icons/fi'
+import { FaHashnode } from "react-icons/fa6";
 import { BsInstagram } from 'react-icons/bs'
 import Link from 'next/link'
 import {motion} from 'framer-motion'
@@ -14,18 +15,13 @@ export default function SocialMediaIcons () {
     },
     {
       icon: <FiLinkedin />,
-      link: 'https://www.linkedin.com/in/anubhav-gupta-92410a244/',
+      link: 'https://www.linkedin.com/in/anubhav-gupta-92410a244',
       name: 'Linkedin'
     },
     {
-      icon: <FiTwitter />,
-      link: 'https://twitter.com/anubhavGupta62',
-      name: 'Twitter'
-    },
-    {
-      icon: <BsInstagram />,
-      link: 'https://www.instagram.com/anu.bhav.gupta/',
-      name: 'Instagram'
+      icon: <FaHashnode />,
+      link: 'https://anubhavinsights.hashnode.dev',
+      name: 'Hashnode'
     }
   ]
   return (

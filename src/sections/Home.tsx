@@ -27,7 +27,7 @@ export default function Home () {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeInOut', delay: 2 }}
           >
-            <h4 className='sub-title'>
+            <h6 className='sub-title'>
               <motion.span
                 className={`word ${
                   hoveredWord && hoveredWord !== 'Anubhav' ? 'active' : ''
@@ -46,8 +46,8 @@ export default function Home () {
               >
                 Gupta
               </motion.span>
-            </h4>
-            <h4 className='sub-title'>
+            </h6>
+            <h6 className='sub-title'>
               <motion.span
                 className={`word ${
                   hoveredWord && hoveredWord !== 'a' ? 'active' : ''
@@ -75,7 +75,36 @@ export default function Home () {
               >
                 Developer
               </motion.span>
-            </h4>
+            </h6>
+             <h6 className='sub-title'>
+              <motion.span
+                className={`word ${
+                  hoveredWord && hoveredWord !== 'a' ? 'active' : ''
+                }`}
+                onMouseEnter={() => handleWordHover('a')}
+                onMouseLeave={() => handleWordHover('')}
+              >
+                a
+              </motion.span>{' '}
+              <motion.span
+                className={`word ${
+                  hoveredWord && hoveredWord !== 'Web' ? 'active' : ''
+                }`}
+                onMouseEnter={() => handleWordHover('Web')}
+                onMouseLeave={() => handleWordHover('')}
+              >
+                DevOps
+              </motion.span>{' '}
+              <motion.span
+                className={`word ${
+                  hoveredWord && hoveredWord !== 'Developer' ? 'active' : ''
+                }`}
+                onMouseEnter={() => handleWordHover('Developer')}
+                onMouseLeave={() => handleWordHover('')}
+              >
+                Enthusiast
+              </motion.span>
+            </h6>
           </motion.div>
         </div>
         <motion.div
@@ -85,11 +114,7 @@ export default function Home () {
           transition={{ duration: 1, ease: 'easeInOut', delay: 2.5 }}
         >
           <span className='description'>
-            <p>Skilled problem solver with expertise in web development.</p>
-            <p>
-              Proficient in <span className='highlight'>MERN stack</span>, C++,
-              SQL, and Three.js.
-            </p>
+            <p>I  <span className='highlight'>scalable apps</span> with Angular, Spring Boot <br/> and cloud-native DevOps pipelines.</p>
           </span>
         </motion.div>
       </div>

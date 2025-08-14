@@ -42,7 +42,7 @@
         top: 12.5vh;
         left: 1.5vw;
         z-index: -1;
-        border: 2px solid rgb(137, 159, 14);
+        border: 2px solid var(--cursor-color);
         transition: all .4s ease;
         background-color: rgba(245, 222, 179, 0.121);
       }

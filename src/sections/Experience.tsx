@@ -1,42 +1,42 @@
 import React, { useEffect, useState } from 'react'
-import {motion} from 'framer-motion'
-function Experience () {
+import { motion } from 'framer-motion'
+function Experience() {
   const experiences = [
     {
-      name: 'Celebal Technologies',
-      role: 'Full Stack Developern Summer Intern',
-      start: 'June 2021',
+      name: 'Chubb',
+      role: 'Full Stack Developer',
+      start: 'September 2023',
       end: 'Present',
       description: [
-        'Immersed in an extensive learning experience focused on React.js, actively participating in professional-led training and hands-on workshops.',
-        'Played an integral role in collaborative web application development, leveraging expertise and fostering effective teamwork.',
-        'Engaged in dynamic, interactive learning environments, continuously honing React.js skills while actively contributing to impactful projects.'
+        'Co-delivered Speed-to-Market platform replacing Excel intake with versioned workflows & module links—cut time-to-launch from 9 months → 15 days, removed duplicate data, and unlocked an estimated $8M/yr in productivity.',
+        'Migrated FE from Angular 12 → 16 in an Nx monorepo; introduced NgRx caching for static data and resolved breaking changes, improving average page load by ~60%.',
+        'Built a workforce segmentation app (towers/teams/squads/chapters); presented to leadership and approved for productization, streamlining chapter-lead assignment and reporting.',
+        'Stack: Angular, NgRx, Nx, Spring Boot, Quarkus, MongoDB, Jenkins, Docker',
       ]
     },
-
     {
-      name: 'Code Clause',
-      role: 'Web Developer Intern',
-      start: 'April 2023',
-      end: 'May 2023',
+      name: 'Celebal Technologies',
+      role: 'Software Development Engineer Intern ',
+      start: 'May 2023',
+      end: 'August 2023',
       description: [
-        'Built a fully responsive music player, modern unit converter, and timer cum stopwatch during my web developer internship at Code Clause. Awarded with a letter of recommendation and internship completion letter.',
-        'Took a hands-on role in developing the projects, ensuring their successful completion within a tight deadline of 6 days. Recognized for outstanding performance with a letter of recommendation and internship completion letter.',
-        'Utilized Next.js and Material UI to create the projects, delivering cutting-edge solutions with exceptional user experiences. Received a letter of recommendation and internship completion letter as an acknowledgment of my achievements.'
-      ]
-    },
-
-    {
-      name: 'Microsoft LSA',
-      role: 'Full Stack Developer',
-      start: 'January 2023',
-      end: 'March 2023',
-      description: [
-        'As a Microsoft Learn Student Ambassador, I actively participated in Collab.mp3, a cutting-edge music player project. We developed an exceptional UI with machine learning algorithms for accurate song prediction.',
-        'Contributing to frontend and backend development in a team of three, I used React.js for a responsive UI and Node.js with MongoDB for efficient data management.',
-        'My role encompassed creating engaging UIs, seamless interactions, and collaborating on backend infrastructure design. This experience enhanced my technical skills and fostered effective teamwork in a music, tech, and data-driven environment.'
+        'Built React components (search, profiles, admin views) backed by Node.js/Express + MongoDB; added pagination and client-side caching to cut redundant calls and speed up loads; wrote Jest tests first, reaching >80% coverage.',
+        'Implemented JWT auth with role-based access; contributed to code reviews and standardized UI using reusable Tailwind components.',
+        'Tech stack: React, Node.js, Express.js, MongoDB, Tailwind CSS, JWT, Jest.'
       ]
     }
+    , {
+      name: 'CodeClause',
+      role: 'Software Development Engineer Intern',
+      start: 'March 2023',
+      end: 'April 2023',
+      description: [
+        'Built a Spotify-integrated music app in React Native using the Spotify Web API (OAuth, search, playlists); delivered the MVP within the internship timeline.',
+        'Also shipped a real-time chat app in React + Node.js/Express with Socket.io, and a news app in React Native consuming NewsAPI.',
+        'Tech stack: React Native, React, Node.js, Express.js, Socket.io, Spotify Web API, NewsAPI.'
+      ]
+    }
+
   ]
 
   const [selectedExperience, setSelectedExperience] = useState(0)
@@ -48,11 +48,11 @@ function Experience () {
   }, [selectedExperience])
   return (
     <motion.div className='experience-container' id='experience'
-    initial={{ opacity: 0,y:100 }} whileInView={{ opacity: 1,y:0 }}
-    transition={{duration:2}}
-    viewport={{ once: true }}>
+      initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 2 }}
+      viewport={{ once: true }}>
       <div className='title'>
-        <h2>Adventures in Adulting</h2>
+        <h2>Lessons in Adulting</h2>
       </div>
       <div className='experience'>
         <ul className='experience-slider'>
@@ -61,9 +61,8 @@ function Experience () {
             return (
               <li
                 key={index}
-                className={`experience-slider-item  ${
-                  selectedExperience === index ? 'selected-item' : ''
-                }`}
+                className={`experience-slider-item  ${selectedExperience === index ? 'selected-item' : ''
+                  }`}
                 onClick={() => setSelectedExperience(index)}
               >
                 <span>{experience.name}</span>

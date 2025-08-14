@@ -220,3 +220,23 @@
    
 }
 
+
+
+
+.other-projects-tech-list {
+  display: flex;
+  flex-wrap: wrap;  /* Allow wrapping */
+  gap: 8px;         /* Space between items */
+  padding: 0;
+  margin: 0;
+  list-style: none; /* Remove default bullet points */
+}
+
+.other-projects-tech-list-item {
+  background: #222;      /* Optional: card-like background */
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  white-space: nowrap;   /* Keep each tech name on one line */
+}

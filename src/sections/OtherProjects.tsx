@@ -1,33 +1,33 @@
 import Link from 'next/link';
 import React from 'react';
 import { FiGithub, FiExternalLink, FiFolder } from 'react-icons/fi';
-import {motion} from 'framer-motion' 
+import { motion } from 'framer-motion'
 export default function OtherProjects() {
   const otherProjects = [
     {
-      name: 'Jambox',
-      description: 'A music player app built with React.Js and Spotify API',
-      tech: ['React.Js', 'ContextAPI', 'Spotify API'],
-      link: 'https://github.com/Anubhav6205/Jambox',
-      extLink:'https://github.com/Anubhav6205/Jambox'
+      name: 'Vibe',
+      description: 'A modern chat app with React, Material UI, and Socket.io for real-time messaging and file sharing.',
+      tech: ['React.Js', 'ContextAPI', 'Socket.io', 'Material UI', 'Node.Js', 'MongoDB'],
+      link: 'https://github.com/Anubhav6205/Vibe',
+      extLink: 'https://github.com/Anubhav6205/Vibe'
     },
     {
-      name: 'Tailwind Website Clone',
-      description:
-        'A clone of the Tailwind website built with React.Js and TailwindCSS',
-      tech: ['React.Js', 'TailwindCSS'],
-      link: 'https://github.com/Anubhav6205/Tailwind-webite-clone',
-      extLink:' https://64779289edd16707dcdfa74d--peppy-custard-bf6f6a.netlify.app/'
+      name: 'KIINECT',
+      description: 'Campus platform for KIITians to connect, collaborate, and share with stunning UI/UX and utilities.',
+      tech: ['React.Js', 'Redux Toolkit', 'Node.Js', 'MongoDB', 'Google Auth'],
+      link: 'https://github.com/Anubhav6205/KIINECT',
+      extLink: 'https://github.com/Anubhav6205/KIINECT'
     },
     {
-      name: 'UniVerse',
-      description:
-        'A sleek React.js unit converter with a wide range of conversion options for length, area, temperature, logarithmic values, and currency.',
-      tech: ['Next.Js', 'CSS'],
-      link: 'https://github.com/Anubhav6205/UniVerse',
-      extLink:' https://6470dff3f93cfe21a6027ce3--sunny-malabi-7f576a.netlify.app/'
-    },
+      name: 'KHABRI',
+      description: 'React Native news app fetching global updates, multilingual, with Context API state management.',
+      tech: ['React Native', 'Context API', 'Multilingual Support'],
+      link: 'https://github.com/Anubhav6205/KHABRI',
+      extLink: 'https://github.com/Anubhav6205/KHABRI'
+    }
+
   ];
+
 
   return (
     <div className="other-projects-container">
@@ -41,15 +41,15 @@ export default function OtherProjects() {
       </div>
 
       <div className="other-projects-lists">
-        {otherProjects.map(({ name, description, tech, link,extLink }, index) => (
+        {otherProjects.map(({ name, description, tech, link, extLink }, index) => (
           <motion.div className="other-projects-box" key={index}
-          initial={{ y: 20 }}
-          whileInView={{ y: 0 }}
-          transition={{ duration: .01,delay:index*.1 }}
-          viewport={{ once: true }}
-          whileHover={{ y:-5 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
+            transition={{ duration: .01, delay: index * .1 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -5 }}
           >
-            
+
             <div className="icons">
               <div className="folder-icon">
                 <a href={extLink} target="_blank">
