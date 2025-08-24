@@ -114,7 +114,7 @@ export default function Home () {
           transition={{ duration: 1, ease: 'easeInOut', delay: 2.5 }}
         >
           <span className='description'>
-            <p>I  <span className='highlight'>scalable apps</span> with Angular, Spring Boot <br/> and cloud-native DevOps pipelines.</p>
+            <p>I build <span className='highlight'>scalable apps</span> with Angular, Spring Boot <br/> and cloud-native DevOps pipelines.</p>
           </span>
         </motion.div>
       </div>

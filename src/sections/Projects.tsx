@@ -7,7 +7,7 @@ export default function Projects() {
   const projectsData = [
     {
       "image": "/project1.png",
-      "projectName": "Full-Stack DevOps Deployment Flow",
+      "projectName": "DevOps Deployment Flow",
       "projectLink": "https://github.com/Anubhav6205/cicd-to-eks-with-monitoring",
       "projectDescription": "A complete CI/CD pipeline with Jenkins, SonarQube, OWASP, and Trivy scans, deploying containerized apps to AWS EKS with Terraform. Includes monitoring via Prometheus & Grafana for full observability.",
       "projectTech": [
@@ -28,7 +28,7 @@ export default function Projects() {
     }
     , {
       "image": "/project2.webp",
-      "projectName": "AWS Microservices Migration & Containerization",
+      "projectName": "Microservices Containerization",
       "projectLink": "https://anubhavinsights.hashnode.dev/deploy-applications-on-aws-a-step-by-step-guide-to-ec2-elb-route-53-and-more",
       "projectDescription": "Migrated a Spring-based microservices stack to AWS (VPC, IAM, TLS, DNS) using EC2, ELB, Route 53, and ACM. Containerized with Docker to standardize builds, improve scalability, and reduce drift across environments.",
       "projectTech": [

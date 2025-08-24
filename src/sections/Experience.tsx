@@ -9,7 +9,7 @@ function Experience() {
       end: 'Present',
       description: [
         'Co-delivered Speed-to-Market platform replacing Excel intake with versioned workflows & module links—cut time-to-launch from 9 months → 15 days, removed duplicate data, and unlocked an estimated $8M/yr in productivity.',
-        'Migrated FE from Angular 12 → 16 in an Nx monorepo; introduced NgRx caching for static data and resolved breaking changes, improving average page load by ~60%.',
+        'Migrated FE from Angular 12 → 16 in an Nx monorepo, introduced NgRx caching for static data and resolved breaking changes, improving average page load by ~60%.',
         'Built a workforce segmentation app (towers/teams/squads/chapters); presented to leadership and approved for productization, streamlining chapter-lead assignment and reporting.',
         'Stack: Angular, NgRx, Nx, Spring Boot, Quarkus, MongoDB, Jenkins, Docker',
       ]
