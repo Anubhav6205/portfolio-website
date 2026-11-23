@@ -8,7 +8,7 @@ My personal site, live at [anubhav-gupta.vercel.app](https://anubhav-gupta.verce
 - Case-study pages for three projects, each with a hand-drawn SVG architecture diagram, results and limitations
 - Project filters, a command palette (Ctrl K or ⌘K) and a dark and light theme
 - Blog posts pulled from my Hashnode RSS feed at build time, refreshed daily, with a static fallback
-- Scroll reveals and count-up metrics that switch off when the visitor prefers reduced motion
+- Smooth scrolling (Lenis), a trailing cursor dot, scroll reveals and count-up metrics, all of which switch off when the visitor prefers reduced motion
 - Generated Open Graph image, sitemap, robots file and Person structured data
 
 ## Tech stack
@@ -17,8 +17,8 @@ My personal site, live at [anubhav-gupta.vercel.app](https://anubhav-gupta.verce
 |---|---|
 | Framework | Next.js 16 (App Router, static generation), React 19, TypeScript |
 | Styling | Tailwind CSS 4, CSS custom properties for both themes |
-| Fonts | Instrument Serif, Geist Sans and Geist Mono |
-| Libraries | next-themes, cmdk, lucide-react |
+| Fonts | Instrument Serif (headings), Source Serif 4 (body), Geist Mono (labels) |
+| Libraries | next-themes, cmdk, lenis, lucide-react |
 | Hosting | Vercel |
 
 ## Project structure

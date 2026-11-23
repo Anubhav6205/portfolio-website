@@ -8,6 +8,7 @@ import { profile } from "@/content/profile";
 import { caseStudies } from "@/content/projects";
 import { GitHubIcon, LinkedInIcon, HashnodeIcon } from "./Icons";
 import { sections } from "./sections";
+import { scrollToId } from "./SmoothScroll";
 
 type Props = {
   open: boolean;
@@ -32,7 +33,7 @@ export function CommandPalette({ open, onOpenChange, toast }: Props) {
   const goSection = (id: string) =>
     run(() => {
       if (pathname === "/") {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        scrollToId(id);
         history.replaceState(null, "", `#${id}`);
       } else {
         router.push(`/#${id}`);
@@ -56,7 +57,7 @@ export function CommandPalette({ open, onOpenChange, toast }: Props) {
         />
         <kbd className="rounded border border-line px-1.5 py-0.5 font-mono text-[10px] text-muted">ESC</kbd>
       </div>
-      <Command.List className="max-h-[60vh] overflow-y-auto p-2">
+      <Command.List data-lenis-prevent className="max-h-[60vh] overflow-y-auto p-2">
         <Command.Empty className="px-3 py-6 text-center text-sm text-muted">No results.</Command.Empty>
 
         <Command.Group heading="Sections">

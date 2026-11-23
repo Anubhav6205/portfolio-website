@@ -43,6 +43,8 @@ export function Nav() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
+    if (menuOpen) window.__lenis?.stop();
+    else window.__lenis?.start();
   }, [menuOpen]);
 
   const href = (id: string) => (home ? `#${id}` : `/#${id}`);

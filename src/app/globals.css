@@ -51,10 +51,10 @@
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-body: var(--font-source-serif), Georgia, serif;
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 5rem;
   -webkit-text-size-adjust: 100%;
 }
@@ -62,8 +62,8 @@ html {
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-sans);
-  font-size: 17px;
+  font-family: var(--font-body);
+  font-size: 18px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -289,9 +289,59 @@ body::before {
   color: var(--muted);
 }
 
+/* Trailing cursor dot */
+.cursor-dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  pointer-events: none;
+  will-change: transform;
+}
+.cursor-dot span {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--accent);
+  background: var(--accent);
+  opacity: 0;
+  transform: scale(0.24);
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    opacity 0.25s ease;
+}
+.cursor-dot[data-visible="true"] span {
+  opacity: 1;
+}
+/* Over links the dot opens into a white ring that inverts what is under it,
+   so it reads on the lime buttons, the paper theme and the dark page alike. */
+.cursor-dot[data-hover="true"] {
+  mix-blend-mode: difference;
+}
+.cursor-dot[data-hover="true"] span {
+  transform: scale(1);
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+.cursor-dot[data-down="true"] span {
+  transform: scale(0.18);
+}
+.cursor-dot[data-hover="true"][data-down="true"] span {
+  transform: scale(0.8);
+}
+@media (pointer: coarse) {
+  .cursor-dot {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  .cursor-dot {
+    display: none;
   }
   *,
   *::before,
