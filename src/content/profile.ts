@@ -27,6 +27,8 @@ export const profile = {
     hashnode: "https://anubhavinsights.hashnode.dev",
   },
   repo: "https://github.com/Anubhav6205/portfolio-website",
+  // Formspree form that emails contact messages to me. Not a secret: it is visible in the page either way.
+  formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID || "xnpdoogk",
 } as const;
 
 export type Metric = {
