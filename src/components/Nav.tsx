@@ -58,26 +58,26 @@ export function Nav() {
       <nav className="container-x flex h-16 items-center justify-between" aria-label="Main">
         <Link
           href="/"
-          className="group flex items-center gap-2.5 font-mono text-sm tracking-tight text-fg"
+          className="group flex items-center gap-2.5 font-mono text-[13px] tracking-tight text-fg"
           title={`${profile.name}, home`}
         >
-          <span className="grid h-8 w-8 place-items-center rounded-lg border border-line-strong font-serif text-base italic transition-colors group-hover:border-accent group-hover:text-accent">
+          <span className="grid h-8 w-8 place-items-center rounded-[3px] border border-line-strong font-serif text-base italic transition-colors group-hover:border-accent group-hover:text-accent">
             {profile.initials}
           </span>
           <span className="sr-only sm:not-sr-only">anubhav.gupta</span>
         </Link>
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-2 md:flex">
           {navSections.map((s) => (
             <li key={s.id}>
               <a
                 href={href(s.id)}
-                className={`relative rounded-full px-3.5 py-1.5 text-sm transition-colors ${
+                className={`label relative px-3 py-2 transition-colors ${
                   active === s.id ? "text-fg" : "text-muted hover:text-fg"
                 }`}
               >
                 {active === s.id && (
-                  <span className="absolute inset-x-3.5 -bottom-0.5 h-px bg-accent" aria-hidden="true" />
+                  <span className="absolute inset-x-3 bottom-0.5 h-px bg-accent" aria-hidden="true" />
                 )}
                 {s.label}
               </a>
@@ -89,24 +89,24 @@ export function Nav() {
           <button
             type="button"
             onClick={openPalette}
-            className="hidden items-center gap-2 rounded-full border border-line px-3 py-1.5 font-mono text-xs text-muted transition-colors hover:border-line-strong hover:text-fg lg:flex"
+            className="label-sm hidden items-center gap-2 rounded-[3px] border border-line px-3 py-2 text-muted transition-colors hover:border-line-strong hover:text-fg lg:flex"
             title="Open command menu"
           >
             Search
-            <kbd className="rounded bg-sunken px-1.5 py-0.5 text-[10px]">{modKey} K</kbd>
+            <kbd className="rounded-[2px] bg-sunken px-1.5 py-0.5 font-mono text-[10px] normal-case tracking-normal">{modKey} K</kbd>
           </button>
           <a
             href={profile.resume}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-1 rounded-full bg-fg px-3.5 py-1.5 text-sm font-medium text-bg transition-opacity hover:opacity-85 sm:flex"
+            className="label hidden items-center gap-1.5 rounded-[3px] border border-line-strong px-3.5 py-2 text-fg transition-colors hover:border-accent hover:text-accent sm:flex"
           >
-            Resume <ArrowUpRight className="h-3.5 w-3.5" />
+            Resume <ArrowUpRight className="h-3 w-3" />
           </a>
           <ThemeToggle />
           <button
             type="button"
-            className="grid h-9 w-9 place-items-center rounded-full border border-line text-fg md:hidden"
+            className="grid h-9 w-9 place-items-center rounded-[3px] border border-line text-fg md:hidden"
             onClick={() => setMenuOpen((o) => !o)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
@@ -128,7 +128,7 @@ export function Nav() {
                   className="flex items-baseline justify-between py-4 font-serif text-3xl text-fg"
                 >
                   {s.label}
-                  <span className="font-mono text-xs text-muted">0{i + 1}</span>
+                  <span className="label-sm text-muted">0{i + 1}</span>
                 </a>
               </li>
             ))}
@@ -137,7 +137,7 @@ export function Nav() {
             href={profile.resume}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-1 rounded-full bg-fg px-4 py-2 text-sm font-medium text-bg"
+            className="btn-primary label mt-8"
           >
             Resume <ArrowUpRight className="h-3.5 w-3.5" />
           </a>

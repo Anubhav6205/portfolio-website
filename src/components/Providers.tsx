@@ -52,7 +52,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         <div
           role="status"
           aria-live="polite"
-          className={`pointer-events-none fixed bottom-6 left-1/2 z-[95] -translate-x-1/2 rounded-full border border-line-strong bg-raised px-4 py-2 font-mono text-xs text-fg shadow-lg transition-all duration-300 ${
+          className={`pointer-events-none fixed bottom-6 left-1/2 z-[95] -translate-x-1/2 rounded-[3px] border border-line-strong bg-raised px-4 py-2 font-mono text-xs text-fg shadow-lg transition-all duration-300 ${
             message ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
           }`}
         >

@@ -52,20 +52,20 @@ export default async function CaseStudyPage({ params }: Props) {
       <div className="container-x">
         <Link
           href="/#work"
-          className="rise inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-muted transition-colors hover:text-fg"
+          className="rise label inline-flex items-center gap-2 text-muted transition-colors hover:text-fg"
         >
           <ArrowLeft className="h-3.5 w-3.5" /> All work
         </Link>
 
         <header className="mt-10 max-w-4xl">
-          <p className="rise flex flex-wrap items-center gap-3 font-mono text-xs text-muted" style={{ "--d": "60ms" } as React.CSSProperties}>
+          <p className="rise label-sm flex flex-wrap items-center gap-3 text-muted" style={{ "--d": "60ms" } as React.CSSProperties}>
             <span>{p.year}</span>
             <span className="h-px w-6 bg-line-strong" aria-hidden="true" />
             <span>Personal project</span>
-            {p.badge && <span className="rounded-full bg-accent-wash px-2 py-0.5 text-accent">{p.badge}</span>}
+            {p.badge && <span className="label-sm text-accent">{p.badge}</span>}
           </p>
           <h1
-            className="rise mt-6 font-serif text-[clamp(2.6rem,7vw,5.4rem)] leading-[1] tracking-[-0.02em] text-fg"
+            className="rise mt-6 font-serif text-[clamp(2.4rem,6vw,4.8rem)] leading-[1.02] tracking-[-0.015em] text-fg"
             style={{ "--d": "120ms" } as React.CSSProperties}
           >
             {p.title}
@@ -81,13 +81,13 @@ export default async function CaseStudyPage({ params }: Props) {
               href={p.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition-opacity hover:opacity-85"
+              className="btn-primary label"
             >
               <GitHubIcon className="h-4 w-4" /> View source <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
             <ul className="flex flex-wrap gap-1.5">
               {p.stack.map((s) => (
-                <li key={s} className="rounded-full border border-line px-2.5 py-1 font-mono text-[11px] text-muted">
+                <li key={s} className="chip label-sm">
                   {s}
                 </li>
               ))}
@@ -109,10 +109,10 @@ export default async function CaseStudyPage({ params }: Props) {
           </Block>
 
           <Block index="02" title="Approach">
-            <ol className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
+            <ol className="grid gap-px overflow-hidden rounded-[6px] border border-line bg-line sm:grid-cols-2">
               {cs.approach.map((a, n) => (
                 <li key={a.title} className="bg-bg p-6">
-                  <p className="font-mono text-xs text-accent">Step {n + 1}</p>
+                  <p className="label-sm text-accent">Step {n + 1}</p>
                   <h3 className="mt-3 font-serif text-2xl text-fg">{a.title}</h3>
                   <p className="mt-2 text-[15px] text-fg-soft">{a.body}</p>
                 </li>
@@ -132,11 +132,11 @@ export default async function CaseStudyPage({ params }: Props) {
           </Block>
 
           <Block index="04" title="Results">
-            <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-px overflow-hidden rounded-[6px] border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
               {cs.results.map((r) => (
                 <div key={r.label} className="bg-bg p-6">
                   <p className="font-serif text-4xl leading-none text-fg md:text-5xl">{r.value}</p>
-                  <p className="mt-3 text-sm text-muted">{r.label}</p>
+                  <p className="label-sm mt-3 text-muted">{r.label}</p>
                 </div>
               ))}
             </div>
@@ -156,7 +156,7 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
 
         <nav aria-label="More case studies" className="mt-10 grid gap-4 border-t border-line pt-10 sm:grid-cols-2">
-          <Link href={`/work/${prev.slug}`} className="group rounded-2xl border border-line p-6 transition-colors hover:border-line-strong hover:bg-raised">
+          <Link href={`/work/${prev.slug}`} className="group rounded-[6px] border border-line p-6 transition-colors hover:border-line-strong hover:bg-raised">
             <span className="inline-flex items-center gap-2 font-mono text-xs text-muted">
               <ArrowLeft className="h-3.5 w-3.5" /> Previous
             </span>
@@ -164,7 +164,7 @@ export default async function CaseStudyPage({ params }: Props) {
           </Link>
           <Link
             href={`/work/${next.slug}`}
-            className="group rounded-2xl border border-line p-6 text-right transition-colors hover:border-line-strong hover:bg-raised"
+            className="group rounded-[6px] border border-line p-6 text-right transition-colors hover:border-line-strong hover:bg-raised"
           >
             <span className="inline-flex items-center gap-2 font-mono text-xs text-muted">
               Next <ArrowRight className="h-3.5 w-3.5" />

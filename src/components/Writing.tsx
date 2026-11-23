@@ -41,7 +41,7 @@ export async function Writing() {
               </span>
               <span className="flex items-center gap-3">
                 {p.tags.map((t) => (
-                  <span key={t} className="hidden font-mono text-[11px] text-muted lg:inline">
+                  <span key={t} className="label-sm hidden text-muted lg:inline">
                     {t}
                   </span>
                 ))}
@@ -55,7 +55,7 @@ export async function Writing() {
         href={blogHome}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-8 inline-flex items-center gap-1.5 text-sm text-fg-soft transition-colors hover:text-accent"
+        className="label mt-8 inline-flex items-center gap-1.5 text-muted transition-colors hover:text-fg"
       >
         All posts on Hashnode <ArrowUpRight className="h-3.5 w-3.5" />
       </a>

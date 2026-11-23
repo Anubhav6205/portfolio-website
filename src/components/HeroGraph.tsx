@@ -49,7 +49,7 @@ function build() {
     adj.set(b, [...(adj.get(b) ?? []), a]);
   });
   const path: number[] = [Math.floor(nodes.length * 0.62)];
-  for (let step = 0; step < 6; step++) {
+  for (let step = 0; step < 3; step++) {
     const next = (adj.get(path[path.length - 1]) ?? []).filter((n) => !path.includes(n));
     if (!next.length) break;
     path.push(next[Math.floor(rand() * next.length)]);

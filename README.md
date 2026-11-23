@@ -17,7 +17,7 @@ My personal site, live at [anubhav-gupta.vercel.app](https://anubhav-gupta.verce
 |---|---|
 | Framework | Next.js 16 (App Router, static generation), React 19, TypeScript |
 | Styling | Tailwind CSS 4, CSS custom properties for both themes |
-| Fonts | Instrument Serif (headings), Source Serif 4 (body), Geist Mono (labels) |
+| Fonts | Instrument Serif (headings), Geist Sans Light (body), Geist Mono (labels) |
 | Libraries | next-themes, cmdk, lenis, lucide-react |
 | Hosting | Vercel |
 

@@ -5,9 +5,9 @@ import { useEffect, useRef } from "react";
 const INTERACTIVE = "a, button, [role='tab'], [cmdk-item], input, textarea, label, summary";
 
 /**
- * A small accent dot that trails the pointer with easing and opens into a ring
- * over links and buttons. The native cursor stays visible. Mouse and trackpad
- * only, and off when the visitor prefers reduced motion.
+ * A small accent ball that replaces the pointer, follows it with light easing and
+ * opens into a ring over links and buttons. Mouse and trackpad only. Touch users
+ * and visitors who prefer reduced motion keep the native cursor.
  */
 export function CursorDot() {
   const ref = useRef<HTMLDivElement>(null);
@@ -18,6 +18,8 @@ export function CursorDot() {
     const fine = window.matchMedia("(pointer: fine)").matches;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!fine || reduce) return;
+    // The ball replaces the pointer, so hide the native cursor only while it runs.
+    document.documentElement.classList.add("has-cursor-dot");
 
     let x = -100;
     let y = -100;
@@ -28,8 +30,8 @@ export function CursorDot() {
 
     const tick = () => {
       // Ease toward the pointer. Larger factor means a tighter follow.
-      x += (tx - x) * 0.2;
-      y += (ty - y) * 0.2;
+      x += (tx - x) * 0.35;
+      y += (ty - y) * 0.35;
       el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       if (Math.abs(tx - x) > 0.1 || Math.abs(ty - y) > 0.1) raf = requestAnimationFrame(tick);
       else raf = 0;
@@ -62,6 +64,7 @@ export function CursorDot() {
     window.addEventListener("pointerdown", onDown);
     window.addEventListener("pointerup", onUp);
     return () => {
+      document.documentElement.classList.remove("has-cursor-dot");
       cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", onMove);
       document.documentElement.removeEventListener("pointerleave", onLeave);

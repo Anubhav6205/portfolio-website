@@ -32,8 +32,8 @@ export default async function OgImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#0b0c0e",
-          color: "#e6e8eb",
+          background: "#0a1114",
+          color: "#dce3e4",
           padding: "72px 80px",
           position: "relative",
         }}
@@ -46,26 +46,26 @@ export default async function OgImage() {
             width: 560,
             height: 560,
             borderRadius: 9999,
-            background: "#c6f432",
+            background: "#84b5b1",
             opacity: 0.08,
             display: "flex",
           }}
         />
-        <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 24, color: "#8a9099" }}>
-          <div style={{ width: 12, height: 12, borderRadius: 9999, background: "#c6f432", display: "flex" }} />
+        <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 24, color: "#7f9094" }}>
+          <div style={{ width: 12, height: 12, borderRadius: 9999, background: "#84b5b1", display: "flex" }} />
           {profile.status}
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 112, lineHeight: 1, fontFamily: serif ? "Instrument Serif" : undefined, display: "flex" }}>
             {profile.name}
           </div>
-          <div style={{ marginTop: 28, fontSize: 40, color: "#c3c7cd", display: "flex" }}>
+          <div style={{ marginTop: 28, fontSize: 40, color: "#a9b7ba", display: "flex" }}>
             {profile.title}, building AI systems
           </div>
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "#8a9099" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "#7f9094" }}>
           <span>RAG · Multi-agent systems · FastAPI · Spring Boot · Kubernetes</span>
-          <span style={{ color: "#c6f432" }}>anubhav-gupta.vercel.app</span>
+          <span style={{ color: "#84b5b1" }}>anubhav-gupta.vercel.app</span>
         </div>
       </div>
     ),

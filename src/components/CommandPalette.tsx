@@ -17,7 +17,7 @@ type Props = {
 };
 
 const itemClass =
-  "flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-fg-soft transition-colors";
+  "flex cursor-pointer items-center gap-3 rounded-[3px] px-3 py-2.5 text-sm text-fg-soft transition-colors";
 
 export function CommandPalette({ open, onOpenChange, toast }: Props) {
   const router = useRouter();
@@ -47,7 +47,7 @@ export function CommandPalette({ open, onOpenChange, toast }: Props) {
       open={open}
       onOpenChange={onOpenChange}
       label="Command menu"
-      className="overflow-hidden rounded-2xl border border-line-strong bg-raised shadow-2xl"
+      className="overflow-hidden rounded-[6px] border border-line-strong bg-raised shadow-2xl"
     >
       <div className="flex items-center gap-3 border-b border-line px-4">
         <span className="font-mono text-xs text-accent">&gt;</span>

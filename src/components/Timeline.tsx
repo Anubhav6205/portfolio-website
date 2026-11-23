@@ -42,7 +42,7 @@ function Entry({ role, i }: { role: Role; i: number }) {
         {role.tags && (
           <ul className="mt-5 flex flex-wrap gap-1.5">
             {role.tags.map((t) => (
-              <li key={t} className="rounded-full border border-line px-2.5 py-0.5 font-mono text-[11px] text-muted">
+              <li key={t} className="chip label-sm">
                 {t}
               </li>
             ))}

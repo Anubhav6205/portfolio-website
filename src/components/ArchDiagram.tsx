@@ -139,7 +139,7 @@ export function ArchDiagram({ kind, caption }: { kind: CaseStudy["diagram"]; cap
   const spec = specs[kind];
   const markerId = `arrow-${kind}`;
   return (
-    <figure className="overflow-hidden rounded-2xl border border-line bg-sunken">
+    <figure className="overflow-hidden rounded-[6px] border border-line bg-sunken">
       <div className="overflow-x-auto">
         <svg
           viewBox={`0 0 ${spec.w} ${spec.h}`}
@@ -172,7 +172,7 @@ export function ArchDiagram({ kind, caption }: { kind: CaseStudy["diagram"]; cap
                 y={g.y}
                 width={g.w}
                 height={g.h}
-                rx="14"
+                rx="6"
                 fill="none"
                 stroke="var(--line-strong)"
                 strokeDasharray="3 5"
@@ -225,7 +225,7 @@ export function ArchDiagram({ kind, caption }: { kind: CaseStudy["diagram"]; cap
                   y={n.y}
                   width={w}
                   height={h}
-                  rx="10"
+                  rx="4"
                   fill={n.tone === "ghost" ? "var(--bg-sunken)" : "var(--bg-raised)"}
                   stroke={n.tone === "accent" ? "var(--accent)" : "var(--line-strong)"}
                   strokeOpacity={n.tone === "accent" ? 0.85 : 1}

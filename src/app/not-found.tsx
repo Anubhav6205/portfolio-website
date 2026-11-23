@@ -16,7 +16,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="mt-10 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-medium text-accent-fg"
+          className="btn-primary label mt-10"
         >
           <ArrowLeft className="h-4 w-4" /> Back home
         </Link>

@@ -1,16 +1,21 @@
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
 import { profile } from "@/content/profile";
 import { HeroGraph } from "./HeroGraph";
-import { GitHubIcon, LinkedInIcon, HashnodeIcon } from "./Icons";
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as React.CSSProperties;
+
+const socials = [
+  { label: "GitHub", href: profile.socials.github },
+  { label: "LinkedIn", href: profile.socials.linkedin },
+  { label: "Hashnode", href: profile.socials.hashnode },
+];
 
 export function Hero() {
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden pb-20 pt-28">
       <HeroGraph />
       <div className="container-x relative">
-        <p className="rise mb-8 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-xs uppercase tracking-[0.14em] text-muted" style={d(0)}>
+        <p className="rise label mb-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-muted" style={d(0)}>
           <span className="text-fg">{profile.title}</span>
           <span className="h-px w-6 bg-line-strong" aria-hidden="true" />
           <span>{profile.employer}</span>
@@ -18,56 +23,56 @@ export function Hero() {
           <span>{profile.location}</span>
         </p>
 
-        <h1 className="lift max-w-4xl font-serif text-[clamp(2.9rem,8.2vw,6.6rem)] leading-[0.98] tracking-[-0.02em] text-fg" style={d(90)}>
-          {profile.headline.before} <em className="serif-accent">{profile.headline.accent}</em> {profile.headline.after}
+        <h1
+          className="lift max-w-4xl font-serif text-[clamp(2.75rem,7.4vw,6rem)] leading-[1] tracking-[-0.015em] text-fg"
+          style={d(90)}
+        >
+          {profile.headline.before} <em className="serif-accent whitespace-nowrap">{profile.headline.accent}</em> {profile.headline.after}
         </h1>
 
-        <p className="lift mt-8 max-w-xl text-lg text-fg-soft" style={d(200)}>
+        <p className="lift mt-8 max-w-xl text-[17px] text-fg-soft" style={d(200)}>
           {profile.summary}
         </p>
 
-        <div className="rise mt-10 flex flex-wrap items-center gap-3" style={d(300)}>
-          <a
-            href="#work"
-            className="group inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-medium text-accent-fg transition-transform hover:-translate-y-0.5"
-          >
+        <div className="rise mt-10 flex flex-wrap items-center gap-x-6 gap-y-3" style={d(300)}>
+          <a href="#work" className="btn-primary label group">
             View work
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
           </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-full border border-line-strong px-5 py-3 text-sm text-fg transition-colors hover:border-fg"
-          >
-            Get in touch
+          <a href="#contact" className="btn-text label">
+            Let&apos;s talk <ArrowRight className="h-3.5 w-3.5" />
           </a>
-          <span className="ml-1 inline-flex items-center gap-2.5 rounded-full border border-line bg-raised/60 px-3.5 py-2 font-mono text-xs text-fg-soft backdrop-blur">
-            <span className="ping relative h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
+        </div>
+
+        <div className="rise mt-10 flex flex-wrap items-center gap-3" style={d(380)}>
+          <span className="label-sm inline-flex items-center gap-2.5 text-fg-soft">
+            <span className="ping relative h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
             {profile.status}
           </span>
         </div>
 
-        <div className="rise mt-16 flex items-center justify-between" style={d(420)}>
-          <ul className="flex items-center gap-5 text-muted">
-            <li>
-              <a href={profile.socials.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="transition-colors hover:text-fg">
-                <GitHubIcon className="h-5 w-5" />
-              </a>
-            </li>
-            <li>
-              <a href={profile.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="transition-colors hover:text-fg">
-                <LinkedInIcon className="h-5 w-5" />
-              </a>
-            </li>
-            <li>
-              <a href={profile.socials.hashnode} target="_blank" rel="noopener noreferrer" aria-label="Blog on Hashnode" className="transition-colors hover:text-fg">
-                <HashnodeIcon className="h-5 w-5" />
-              </a>
-            </li>
+        <div className="rise mt-14 flex items-center justify-between" style={d(460)}>
+          <ul className="flex flex-wrap items-center gap-2">
+            {socials.map((s) => (
+              <li key={s.label}>
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="chip label-sm transition-colors hover:border-accent hover:text-fg"
+                >
+                  {s.label} <ArrowUpRight className="h-3 w-3" />
+                </a>
+              </li>
+            ))}
           </ul>
-          <a href="#about" className="hidden items-center gap-3 font-mono text-xs uppercase tracking-[0.14em] text-muted transition-colors hover:text-fg sm:flex">
+          <a
+            href="#about"
+            className="label-sm hidden items-center gap-3 text-muted transition-colors hover:text-fg sm:flex"
+          >
             Scroll
             <span className="cue relative block h-10 w-px overflow-hidden bg-line-strong" aria-hidden="true" />
-            <ArrowDown className="h-3.5 w-3.5" />
+            <ArrowDown className="h-3 w-3" />
           </a>
         </div>
       </div>

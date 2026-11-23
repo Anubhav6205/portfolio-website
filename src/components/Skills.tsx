@@ -18,12 +18,12 @@ export function Skills() {
       <div className="divide-y divide-line border-y border-line">
         {skills.map((g, i) => (
           <Reveal key={g.group} delay={i * 60} className="grid gap-4 py-7 md:grid-cols-[200px_1fr] md:gap-8">
-            <h3 className="font-mono text-xs uppercase tracking-[0.12em] text-muted md:pt-1.5">{g.group}</h3>
+            <h3 className="label text-muted md:pt-2">{g.group}</h3>
             <ul className="flex flex-wrap gap-2">
               {g.items.map((s) => (
                 <li
                   key={s}
-                  className="rounded-lg border border-line bg-raised px-3 py-1.5 text-sm text-fg-soft transition-colors hover:border-accent hover:text-fg"
+                  className="rounded-[2px] border border-line px-3 py-1.5 text-[13px] text-fg-soft transition-colors hover:border-accent hover:text-fg"
                 >
                   {s}
                 </li>

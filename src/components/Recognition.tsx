@@ -21,7 +21,7 @@ export function Recognition() {
           const body = (
             <>
               <div className="flex items-start justify-between gap-4">
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-line bg-sunken text-accent">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-[3px] border border-line bg-sunken text-accent">
                   <Icon className="h-4 w-4" />
                 </span>
                 <span className="font-mono text-xs text-muted">{a.date}</span>
@@ -43,12 +43,12 @@ export function Recognition() {
                   href={a.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block h-full rounded-2xl border border-line p-6 transition-colors hover:border-line-strong hover:bg-raised md:p-8"
+                  className="group block h-full rounded-[6px] border border-line p-6 transition-colors hover:border-line-strong hover:bg-raised md:p-8"
                 >
                   {body}
                 </a>
               ) : (
-                <div className="h-full rounded-2xl border border-line p-6 md:p-8">{body}</div>
+                <div className="h-full rounded-[6px] border border-line p-6 md:p-8">{body}</div>
               )}
             </Reveal>
           );

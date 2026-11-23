@@ -11,12 +11,12 @@ function Chips({ items, max }: { items: string[]; max?: number }) {
   return (
     <ul className="flex flex-wrap gap-1.5">
       {shown.map((s) => (
-        <li key={s} className="rounded-full border border-line px-2.5 py-0.5 font-mono text-[11px] text-muted">
+        <li key={s} className="chip label-sm">
           {s}
         </li>
       ))}
       {max && items.length > max && (
-        <li className="px-1 py-0.5 font-mono text-[11px] text-muted">+{items.length - max}</li>
+        <li className="label-sm px-1 py-1 text-muted">+{items.length - max}</li>
       )}
     </ul>
   );
@@ -24,12 +24,12 @@ function Chips({ items, max }: { items: string[]; max?: number }) {
 
 function FeaturedCard({ p, n }: { p: Project; n: number }) {
   return (
-    <article className="group relative grid gap-8 overflow-hidden rounded-2xl border border-line bg-raised p-6 transition-colors hover:border-line-strong md:grid-cols-[1.1fr_1fr] md:p-10">
+    <article className="group relative grid gap-8 overflow-hidden rounded-[6px] border border-line bg-raised p-6 transition-colors hover:border-line-strong md:grid-cols-[1.1fr_1fr] md:p-10">
       <div className="flex flex-col">
-        <div className="flex items-center gap-3 font-mono text-xs text-muted">
+        <div className="label-sm flex items-center gap-3 text-muted">
           <span className="text-accent">{String(n).padStart(2, "0")}</span>
           <span>{p.year}</span>
-          {p.badge && <span className="rounded-full bg-accent-wash px-2 py-0.5 text-accent">{p.badge}</span>}
+          {p.badge && <span className="label-sm text-accent">{p.badge}</span>}
         </div>
         <h3 className="mt-5 font-serif text-3xl leading-tight text-fg md:text-4xl">
           <Link href={`/work/${p.slug}`} className="after:absolute after:inset-0 after:content-['']">
@@ -41,7 +41,7 @@ function FeaturedCard({ p, n }: { p: Project; n: number }) {
           <Chips items={p.stack} />
         </div>
         <div className="mt-auto flex items-center gap-5 pt-8 text-sm">
-          <span className="inline-flex items-center gap-1.5 text-fg">
+          <span className="label inline-flex items-center gap-1.5 text-fg">
             Read the case study
             <ArrowRight className="h-4 w-4 text-accent transition-transform group-hover:translate-x-1" />
           </span>
@@ -49,13 +49,13 @@ function FeaturedCard({ p, n }: { p: Project; n: number }) {
             href={p.repo}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative z-10 inline-flex items-center gap-1.5 text-muted transition-colors hover:text-fg"
+            className="label relative z-10 inline-flex items-center gap-1.5 text-muted transition-colors hover:text-fg"
           >
             <GitHubIcon className="h-4 w-4" /> Source
           </a>
         </div>
       </div>
-      <div className="relative hidden min-h-[220px] rounded-xl border border-line bg-sunken md:block">
+      <div className="relative hidden min-h-[220px] rounded-[3px] border border-line bg-sunken md:block">
         <CardVisual p={p} />
       </div>
     </article>
@@ -68,7 +68,7 @@ function CardVisual({ p }: { p: Project }) {
   const lead = r[p.caseStudy?.lead ?? 0];
   return (
     <div className="flex h-full flex-col justify-between p-6">
-      <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">{p.caseStudy?.tagline}</p>
+      <p className="label-sm text-muted">{p.caseStudy?.tagline}</p>
       {lead && (
         <div>
           <p className="font-serif text-6xl leading-none text-fg transition-colors group-hover:text-accent">{lead.value}</p>
@@ -79,7 +79,7 @@ function CardVisual({ p }: { p: Project }) {
         {Array.from({ length: 12 }).map((_, i) => (
           <span
             key={i}
-            className="h-1 rounded-full bg-line-strong transition-colors duration-500 group-hover:bg-accent/60"
+            className="h-px bg-line-strong transition-colors duration-500 group-hover:bg-accent/60"
             style={{ transitionDelay: `${i * 30}ms` }}
           />
         ))}
@@ -90,10 +90,10 @@ function CardVisual({ p }: { p: Project }) {
 
 function CompactCard({ p }: { p: Project }) {
   return (
-    <article className="group relative flex flex-col rounded-2xl border border-line p-6 transition-colors hover:border-line-strong hover:bg-raised">
-      <div className="flex items-center justify-between font-mono text-xs text-muted">
+    <article className="group relative flex flex-col rounded-[6px] border border-line p-6 transition-colors hover:border-line-strong hover:bg-raised">
+      <div className="label-sm flex items-center justify-between text-muted">
         <span>{p.year}</span>
-        {p.badge && <span className="rounded-full bg-accent-wash px-2 py-0.5 text-accent">{p.badge}</span>}
+        {p.badge && <span className="label-sm text-accent">{p.badge}</span>}
       </div>
       <h3 className="mt-4 font-serif text-2xl leading-tight text-fg">
         <a
@@ -125,7 +125,7 @@ export function Work() {
 
   return (
     <div>
-      <div role="tablist" aria-label="Filter projects" className="mb-10 flex flex-wrap gap-2">
+      <div role="tablist" aria-label="Filter projects" className="mb-10 flex flex-wrap gap-x-7 gap-y-3 border-b border-line">
         {categories.map((c) => {
           const count = c.id === "all" ? projects.length : projects.filter((p) => p.category.includes(c.id as Category)).length;
           const active = filter === c.id;
@@ -135,12 +135,13 @@ export function Work() {
               role="tab"
               aria-selected={active}
               onClick={() => setFilter(c.id)}
-              className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
-                active ? "border-accent bg-accent text-accent-fg" : "border-line text-muted hover:border-line-strong hover:text-fg"
+              className={`label relative pb-2 transition-colors ${
+                active ? "text-fg" : "text-muted hover:text-fg"
               }`}
             >
               {c.label}
-              <span className={`ml-2 font-mono text-[11px] ${active ? "opacity-70" : "opacity-60"}`}>{count}</span>
+              <span className="ml-1.5 font-mono text-[10px] text-muted">{count}</span>
+              {active && <span className="absolute inset-x-0 bottom-0 h-px bg-accent" aria-hidden="true" />}
             </button>
           );
         })}
@@ -164,13 +165,13 @@ export function Work() {
                 href="https://github.com/Anubhav6205?tab=repositories"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rise group flex min-h-[220px] flex-col justify-between rounded-2xl border border-dashed border-line-strong p-6 transition-colors hover:border-accent"
+                className="rise group flex min-h-[220px] flex-col justify-between rounded-[6px] border border-dashed border-line-strong p-6 transition-colors hover:border-accent"
                 style={{ "--d": `${(featured.length + rest.length) * 60}ms` } as React.CSSProperties}
               >
                 <GitHubIcon className="h-6 w-6 text-muted transition-colors group-hover:text-accent" />
                 <span>
                   <span className="block font-serif text-2xl text-fg">More on GitHub</span>
-                  <span className="mt-2 inline-flex items-center gap-1.5 font-mono text-xs text-muted">
+                  <span className="label-sm mt-2 inline-flex items-center gap-1.5 text-muted">
                     github.com/Anubhav6205 <ArrowUpRight className="h-3.5 w-3.5" />
                   </span>
                 </span>

@@ -2,37 +2,37 @@
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* Light "paper" theme */
+/* Light theme: Oxford paper */
 :root {
-  --bg: #f5f4f0;
+  --bg: #f3f5f4;
   --bg-raised: #ffffff;
-  --bg-sunken: #ecebe5;
-  --line: rgba(21, 23, 26, 0.09);
-  --line-strong: rgba(21, 23, 26, 0.18);
-  --fg: #15171a;
-  --fg-soft: #3a3f46;
-  --muted: #646a73;
-  --accent: #4d6b00;
-  --accent-fg: #f5f4f0;
-  --accent-wash: rgba(77, 107, 0, 0.09);
-  --graph: rgba(21, 23, 26, 0.16);
+  --bg-sunken: #e9edec;
+  --line: rgba(20, 32, 36, 0.09);
+  --line-strong: rgba(20, 32, 36, 0.18);
+  --fg: #142024;
+  --fg-soft: #3a4a4f;
+  --muted: #5f6f73;
+  --accent: #2f6e6a;
+  --accent-fg: #f3f5f4;
+  --accent-wash: rgba(47, 110, 106, 0.08);
+  --graph: rgba(20, 32, 36, 0.1);
   color-scheme: light;
 }
 
-/* Dark "ink" theme (default) */
+/* Dark theme (default): Oxford ink with a muted teal accent */
 [data-theme="dark"] {
-  --bg: #0b0c0e;
-  --bg-raised: #121417;
-  --bg-sunken: #08090a;
-  --line: rgba(255, 255, 255, 0.07);
-  --line-strong: rgba(255, 255, 255, 0.14);
-  --fg: #e6e8eb;
-  --fg-soft: #c3c7cd;
-  --muted: #8a9099;
-  --accent: #c6f432;
-  --accent-fg: #0b0c0e;
-  --accent-wash: rgba(198, 244, 50, 0.08);
-  --graph: rgba(230, 232, 235, 0.13);
+  --bg: #0a1114;
+  --bg-raised: #10191d;
+  --bg-sunken: #070d10;
+  --line: rgba(220, 227, 228, 0.07);
+  --line-strong: rgba(220, 227, 228, 0.14);
+  --fg: #dce3e4;
+  --fg-soft: #a9b7ba;
+  --muted: #7f9094;
+  --accent: #84b5b1;
+  --accent-fg: #0a1114;
+  --accent-wash: rgba(132, 181, 177, 0.1);
+  --graph: rgba(220, 227, 228, 0.08);
   color-scheme: dark;
 }
 
@@ -51,7 +51,6 @@
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
-  --font-body: var(--font-source-serif), Georgia, serif;
 }
 
 html {
@@ -62,9 +61,10 @@ html {
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 1.65;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -81,17 +81,6 @@ body {
   border-radius: 4px;
 }
 
-/* Fine grain overlay for depth */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 60;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
 .container-x {
   width: 100%;
   max-width: 1120px;
@@ -102,6 +91,59 @@ body::before {
   .container-x {
     padding-inline: 2.5rem;
   }
+}
+
+/* Small tracked uppercase label: nav links, buttons, tabs, chips, meta */
+.label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.label-sm {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 3px;
+  background: var(--accent);
+  color: var(--accent-fg);
+  padding: 0.85rem 1.5rem;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.btn-primary:hover {
+  opacity: 0.88;
+}
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  padding: 0.85rem 0.25rem;
+  transition: color 0.25s ease;
+}
+.btn-text:hover {
+  color: var(--fg);
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  padding: 0.3rem 0.65rem;
+  color: var(--muted);
 }
 
 .serif-accent {
@@ -289,7 +331,12 @@ body::before {
   color: var(--muted);
 }
 
-/* Trailing cursor dot */
+/* Trailing cursor dot. The class is added by CursorDot only on fine pointers
+   without a reduced-motion preference, so everyone else keeps the native cursor. */
+html.has-cursor-dot,
+html.has-cursor-dot * {
+  cursor: none !important;
+}
 .cursor-dot {
   position: fixed;
   left: 0;
@@ -307,7 +354,7 @@ body::before {
   border: 1.5px solid var(--accent);
   background: var(--accent);
   opacity: 0;
-  transform: scale(0.24);
+  transform: scale(0.3);
   transition:
     transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
     background-color 0.25s ease,
@@ -328,7 +375,7 @@ body::before {
   background: rgba(255, 255, 255, 0.1);
 }
 .cursor-dot[data-down="true"] span {
-  transform: scale(0.18);
+  transform: scale(0.22);
 }
 .cursor-dot[data-hover="true"][data-down="true"] span {
   transform: scale(0.8);
