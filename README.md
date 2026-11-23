@@ -1,25 +1,40 @@
-Portfolio Website
+# Portfolio Website
 
-This is the repository for my personal portfolio website. It showcases my skills, projects, and provides an interactive platform for visitors to learn more about me. The website is built using modern tech stacks, including Next.js, SCSS, TypeScript, Framer Motion, and Node.js. It is deployed using Vercel, ensuring a seamless and reliable hosting experience.
+Source code for my personal portfolio site. It has sections for experience, featured projects, other projects, an about page and a contact link, with animated transitions and a custom cursor.
 
-Tech Stack:-
+**Status:** live site, last updated August 2025.
 
-Frontend:
-The frontend of the portfolio website is built using the following technologies:
+## Tech stack
 
-Next.js: Next.js is a popular React framework that enables server-side rendering (SSR), static site generation (SSG), and client-side rendering (CSR) for optimal performance and SEO benefits.
+Next.js 13 (pages router), React 18, TypeScript, SCSS, Framer Motion. Deployed on Vercel.
 
-SCSS: SCSS (Sass) is a powerful CSS preprocessor that allows for the use of variables, mixins, and nested rules, enhancing code maintainability and reusability.
+## Project structure
 
-TypeScript: TypeScript is a strongly typed superset of JavaScript that provides static typing, enabling better code quality, enhanced productivity, and improved developer experience.
+```
+src/pages/      Next.js entry points (_app.tsx, index.tsx)
+src/sections/   page sections: Home, About, Experience, Projects, OtherProjects, Contact, Navbar
+src/components/ shared UI (Button, Cursor, Loader, Logo, Email, SocialMediaIcons)
+src/scss/       global variables, section and component styles
+public/         images and resume PDF
+```
 
-Framer Motion: Framer Motion is a flexible animation library for React that simplifies the process of creating smooth and interactive animations, adding a dynamic touch to the user interface.
+## Run locally
 
-Backend:
-The backend of the portfolio website leverages the following technology:
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build && npm start
+```
 
-Node.js: Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows for server-side scripting and enables the development of scalable and high-performance web applications.
+## Limitations
 
-Deployment:
+- Project and experience content is written directly in the section components, not loaded from a data file.
+- No automated tests.
 
-The portfolio website is deployed using Vercel, a cloud platform for static sites and serverless functions. Vercel provides a simple and intuitive deployment process, ensuring that the website is easily accessible and consistently available to visitors.
+## License
+
+MIT, see [LICENSE](LICENSE). The images and the resume PDF in `public/` are personal and are not covered by the license.
+
+## Contact
+
+Anubhav Gupta, [LinkedIn](https://www.linkedin.com/in/anubhav-gupta-92410a244/)
