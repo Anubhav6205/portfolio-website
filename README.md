@@ -2,7 +2,7 @@
 
 Source code for my personal portfolio site. It has sections for experience, featured projects, other projects, an about page and a contact link, with animated transitions and a custom cursor.
 
-**Status:** live site, last updated August 2025.
+**Status:** finished, last updated August 2025.
 
 ## Tech stack
 
