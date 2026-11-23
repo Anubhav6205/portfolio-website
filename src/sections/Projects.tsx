@@ -49,7 +49,7 @@ export default function Projects() {
     {
       "image": "/project3.png",
       "projectName": "Nest — Rental Marketplace",
-      "projectLink": "https://github.com/Anubhav6205/Nest",
+      "projectLink": "https://github.com/Anubhav6205/nest-property-rental-platform",
       "projectDescription": "A secure rental marketplace connecting landlords and tenants. Users can list properties, chat in-app, view geocoded maps, receive email notifications, and initiate payments — all with role-based access control and robust JDBC-backed data management.",
       "projectTech": [
         "Angular 17",
@@ -60,8 +60,8 @@ export default function Projects() {
         "MongoDB"
       ],
       "projectExternalLinks": {
-        "github": "https://github.com/Anubhav6205/Nest",
-        "externalLink": "https://github.com/Anubhav6205/Nest"
+        "github": "https://github.com/Anubhav6205/nest-property-rental-platform",
+        "externalLink": "https://github.com/Anubhav6205/nest-property-rental-platform"
       }
     }
   ]

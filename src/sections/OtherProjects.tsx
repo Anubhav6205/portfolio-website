@@ -8,22 +8,15 @@ export default function OtherProjects() {
       name: 'Vibe',
       description: 'A modern chat app with React, Material UI, and Socket.io for real-time messaging and file sharing.',
       tech: ['React.Js', 'ContextAPI', 'Socket.io', 'Material UI', 'Node.Js', 'MongoDB'],
-      link: 'https://github.com/Anubhav6205/Vibe',
-      extLink: 'https://github.com/Anubhav6205/Vibe'
+      link: 'https://github.com/Anubhav6205/vibe-chat-app',
+      extLink: 'https://github.com/Anubhav6205/vibe-chat-app'
     },
     {
       name: 'KIINECT',
       description: 'Campus platform for KIITians to connect, collaborate, and share with stunning UI/UX and utilities.',
       tech: ['React.Js', 'Redux Toolkit', 'Node.Js', 'MongoDB', 'Google Auth'],
-      link: 'https://github.com/Anubhav6205/KIINECT',
-      extLink: 'https://github.com/Anubhav6205/KIINECT'
-    },
-    {
-      name: 'KHABRI',
-      description: 'React Native news app fetching global updates, multilingual, with Context API state management.',
-      tech: ['React Native', 'Context API', 'Multilingual Support'],
-      link: 'https://github.com/Anubhav6205/KHABRI',
-      extLink: 'https://github.com/Anubhav6205/KHABRI'
+      link: 'https://github.com/Anubhav6205/kiinect-campus-app',
+      extLink: 'https://github.com/Anubhav6205/kiinect-campus-app'
     }
 
   ];
