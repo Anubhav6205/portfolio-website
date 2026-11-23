@@ -65,7 +65,7 @@ export function Timeline() {
           From intern to senior, with a steady move toward <Accent>AI.</Accent>
         </>
       }
-      intro="All of my professional work so far has been at Chubb, from intern to Senior Software Engineer. Newest first."
+      intro="My work at Chubb, from intern to Senior Software Engineer, newest first."
     >
       <ol className="relative">
         <span

@@ -43,7 +43,7 @@ export function Contact() {
             Have a hard problem with an LLM in it? <em className="serif-accent">Let&apos;s talk.</em>
           </h2>
           <p className="mt-8 max-w-xl text-lg text-fg-soft">
-            I am open to AI Engineer and Applied AI roles, hybrid or remote. Email is the fastest way to reach me.
+            I am open to AI Engineer and Applied AI roles. Email is the fastest way to reach me.
           </p>
         </Reveal>
 

@@ -76,15 +76,15 @@ export const projects: Project[] = [
       decisions: [
         {
           title: "Separate code and docs collections",
-          body: "Code and prose behave differently under embeddings. Keeping them apart, each with dense and sparse vectors, let me tune retrieval for both instead of averaging them out.",
+          body: "Code and prose behave differently under embeddings, so each lives in its own collections, with dense and sparse vectors for both.",
         },
         {
-          title: "Golden set before tuning",
-          body: "I wrote the 31 evaluation questions first, including 10 that the codebase cannot answer, so every change was judged against the same bar.",
+          title: "A fixed golden set",
+          body: "The 31 evaluation questions, including 10 that the codebase cannot answer, give every change the same bar to clear.",
         },
         {
           title: "Trace everything",
-          body: "Every node is traced with Phoenix and LangSmith, which made it possible to see which hop found the missing evidence and where the answer went wrong.",
+          body: "Every step is traced with Phoenix and LangSmith, so each hop and check can be inspected when an answer goes wrong.",
         },
       ],
       results: [
@@ -145,11 +145,11 @@ export const projects: Project[] = [
         },
         {
           title: "Guardrail as its own node",
-          body: "Keeping safety checks in a dedicated node made them easy to test in isolation and kept the other prompts focused on their own job.",
+          body: "Safety checks run in a dedicated node before any other agent, which keeps the other prompts focused on their own job.",
         },
         {
-          title: "Streaming from day one",
-          body: "Long multi-agent runs feel slow without feedback, so the API streams tokens as the writer works.",
+          title: "A streaming endpoint",
+          body: "Long multi-agent runs feel slow without feedback, so the API also offers an endpoint that streams tokens as the writer works.",
         },
       ],
       results: [
@@ -209,7 +209,7 @@ export const projects: Project[] = [
         },
         {
           title: "Infrastructure as code",
-          body: "The monitoring server lives in Terraform, so it can be torn down and recreated without manual setup.",
+          body: "The monitoring server and its security group are defined in Terraform rather than set up by hand.",
         },
       ],
       results: [

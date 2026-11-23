@@ -53,7 +53,6 @@ export const timeline: Role[] = [
     bullets: [
       "Developed a workforce segmentation web app that maps 10k+ employees across towers, teams, squads and chapters, and won senior leadership approval for productization.",
     ],
-    tags: ["Angular", "Spring Boot", "MongoDB"],
   },
   {
     title: "B.Tech, Computer Science and Engineering",
@@ -73,6 +72,6 @@ export const nextStep: Role = {
   start: "Next",
   kind: "next",
   summary:
-    "Looking for a team that ships agents, retrieval and evaluation to real users. Based in Hyderabad and open to hybrid or remote work.",
+    "Looking for a team that ships agents, retrieval and evaluation to real users. Based in Hyderabad.",
   bullets: [],
 };

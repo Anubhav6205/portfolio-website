@@ -27,7 +27,7 @@ export const blurbs: Record<string, { blurb: string; tags: string[] }> = {
     tags: ["System design"],
   },
   "deploy-applications-on-aws-a-step-by-step-guide-to-ec2-elb-route-53-and-more": {
-    blurb: "Moving a multi-service Java app onto EC2 with ELB, Route 53, ACM, RabbitMQ and Memcached.",
+    blurb: "Moving a multi-service Java app with RabbitMQ, Memcached and MySQL onto EC2, ELB and Route 53.",
     tags: ["AWS", "DevOps"],
   },
 };
