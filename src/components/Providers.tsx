@@ -27,6 +27,23 @@ export function Providers({ children }: { children: React.ReactNode }) {
     timer.current = setTimeout(() => setMessage(null), 2200);
   }, []);
 
+  // Load the palette on the first interaction (or after a few seconds), so it is ready
+  // before anyone opens it but never competes with the initial page load.
+  useEffect(() => {
+    const events = ["pointermove", "keydown", "touchstart", "scroll"] as const;
+    const load = () => {
+      setPaletteLoaded(true);
+      events.forEach((e) => window.removeEventListener(e, load));
+      clearTimeout(timer);
+    };
+    events.forEach((e) => window.addEventListener(e, load, { once: true, passive: true }));
+    const timer = setTimeout(load, 6000);
+    return () => {
+      events.forEach((e) => window.removeEventListener(e, load));
+      clearTimeout(timer);
+    };
+  }, []);
+
   const openPalette = useCallback(() => {
     setPaletteLoaded(true);
     setPaletteOpen(true);

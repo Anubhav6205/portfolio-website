@@ -1,6 +1,7 @@
 "use client";
 
 import { Command } from "cmdk";
+import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { ArrowUpRight, Copy, FileText, Hash, Moon, Sun, Layers } from "lucide-react";
@@ -23,11 +24,32 @@ export function CommandPalette({ open, onOpenChange, toast }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const { resolvedTheme, setTheme } = useTheme();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [query, setQuery] = useState("");
+
+  // Stays mounted, so opening is a CSS change rather than a fresh render.
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.activeElement as HTMLElement | null;
+    window.__lenis?.stop();
+    const id = requestAnimationFrame(() => inputRef.current?.focus());
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onOpenChange(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      cancelAnimationFrame(id);
+      window.removeEventListener("keydown", onKey);
+      window.__lenis?.start();
+      setQuery("");
+      previous?.focus?.();
+    };
+  }, [open, onOpenChange]);
 
   const run = (fn: () => void) => {
     onOpenChange(false);
-    // Let the dialog close before scrolling or navigating.
-    setTimeout(fn, 60);
+    // Next tick, after the palette has closed and focus has returned.
+    setTimeout(fn, 0);
   };
 
   const goSection = (id: string) =>
@@ -43,17 +65,18 @@ export function CommandPalette({ open, onOpenChange, toast }: Props) {
   const openUrl = (url: string) => run(() => window.open(url, "_blank", "noopener,noreferrer"));
 
   return (
-    <Command.Dialog
-      open={open}
-      onOpenChange={onOpenChange}
-      label="Command menu"
-      className="overflow-hidden rounded-[6px] border border-line-strong bg-raised shadow-2xl"
-    >
+    <div className="palette-root" data-open={open} inert={!open}>
+      <div className="palette-overlay" onClick={() => onOpenChange(false)} />
+      <div role="dialog" aria-modal="true" aria-label="Command menu" className="palette-panel">
+    <Command label="Command menu" className="overflow-hidden rounded-[6px] border border-line-strong bg-raised shadow-2xl">
       <div className="flex items-center gap-3 border-b border-line px-4">
         <span className="font-mono text-xs text-accent">&gt;</span>
         <Command.Input
+          ref={inputRef}
+          value={query}
+          onValueChange={setQuery}
           placeholder="Jump to a section, open a project, copy my email..."
-          className="h-14 w-full bg-transparent text-[15px] text-fg outline-none placeholder:text-muted focus-visible:outline-none"
+          className="h-14 w-full bg-transparent text-[15px] text-fg outline-none placeholder:text-muted"
         />
         <kbd className="rounded border border-line px-1.5 py-0.5 font-mono text-[10px] text-muted">ESC</kbd>
       </div>
@@ -139,6 +162,8 @@ export function CommandPalette({ open, onOpenChange, toast }: Props) {
           </Command.Item>
         </Command.Group>
       </Command.List>
-    </Command.Dialog>
+    </Command>
+      </div>
+    </div>
   );
 }

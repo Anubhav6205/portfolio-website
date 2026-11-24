@@ -67,7 +67,6 @@ body {
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
@@ -227,15 +226,6 @@ body {
 }
 
 /* Hero graph */
-@keyframes float {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(-14px, 10px, 0);
-  }
-}
 @keyframes hit {
   0%,
   70%,
@@ -245,9 +235,6 @@ body {
   78% {
     opacity: 1;
   }
-}
-.graph-layer {
-  animation: float 26s ease-in-out infinite;
 }
 .graph-node {
   fill: var(--graph);
@@ -285,7 +272,7 @@ body {
   width: 100%;
   height: 50%;
   background: var(--accent);
-  animation: cue 2.4s cubic-bezier(0.6, 0, 0.3, 1) infinite;
+  animation: cue 2.4s cubic-bezier(0.6, 0, 0.3, 1) 3;
 }
 
 /* Diagram flow */
@@ -299,21 +286,44 @@ body {
   animation: dash 1.6s linear infinite;
 }
 
-/* Command palette */
-[cmdk-overlay] {
+/* Command palette: always mounted and laid out, so opening only changes opacity
+   and transform. While closed it is inert (no focus, hidden from assistive tech). */
+.palette-root {
   position: fixed;
   inset: 0;
   z-index: 80;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(4px);
+  pointer-events: none;
 }
-[cmdk-dialog] {
-  position: fixed;
-  z-index: 90;
+.palette-root[data-open="true"] {
+  pointer-events: auto;
+}
+.palette-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 7, 9, 0.55);
+  opacity: 0;
+  transition: opacity 0.14s ease;
+}
+:root:not([data-theme="dark"]) .palette-overlay {
+  background: rgba(20, 32, 36, 0.22);
+}
+.palette-panel {
+  position: absolute;
   top: 14vh;
   left: 50%;
-  transform: translateX(-50%);
   width: min(560px, calc(100vw - 2rem));
+  opacity: 0;
+  transform: translate(-50%, -6px) scale(0.985);
+  transition:
+    opacity 0.14s ease,
+    transform 0.14s ease;
+}
+.palette-root[data-open="true"] .palette-overlay {
+  opacity: 1;
+}
+.palette-root[data-open="true"] .palette-panel {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
 }
 [cmdk-item][data-selected="true"] {
   background: var(--accent-wash);
@@ -344,6 +354,45 @@ html.has-cursor-dot * {
   z-index: 100;
   pointer-events: none;
   will-change: transform;
+  contain: layout style;
+}
+/* Hero graph pulses stop while the hero is offscreen */
+.graph-paused .graph-hit,
+.graph-paused .graph-edge.is-hit {
+  animation-play-state: paused;
+}
+/* Metric cards open downward on hover or focus to show what the number means */
+.metric-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.3s ease;
+}
+.metric:hover .metric-detail,
+.metric:focus-visible .metric-detail {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.metric:hover .metric-hint,
+.metric:focus-visible .metric-hint {
+  transform: rotate(45deg);
+  color: var(--accent);
+}
+@media (hover: none) {
+  .metric-detail {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+  .metric-hint {
+    display: none;
+  }
+}
+
+/* Command palette input: no focus ring inside the panel */
+[cmdk-input]:focus-visible {
+  outline: none;
 }
 .cursor-dot span {
   position: absolute;

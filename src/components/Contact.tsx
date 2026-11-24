@@ -33,7 +33,7 @@ export function Contact() {
     <section id="contact" aria-labelledby="contact-title" className="relative overflow-hidden border-t border-line py-24 md:py-36">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-40 -top-40 h-[480px] w-[480px] rounded-full bg-accent opacity-[0.04] blur-3xl"
+        className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] [background:radial-gradient(circle,var(--accent-wash)_0%,transparent_65%)]"
       />
       <div className="container-x relative">
         <Reveal>

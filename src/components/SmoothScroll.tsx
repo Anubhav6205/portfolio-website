@@ -15,8 +15,8 @@ export function SmoothScroll() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const lenis = new Lenis({
       autoRaf: true,
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      // Light smoothing that stays close to the wheel, so scrolling never feels behind.
+      lerp: 0.16,
       // Anchor links glide to their section. The CSS scroll-padding-top keeps them below the fixed nav.
       anchors: true,
     });

@@ -52,6 +52,8 @@ export const timeline: Role[] = [
     kind: "work",
     bullets: [
       "Developed a workforce segmentation web app that maps 10k+ employees across towers, teams, squads and chapters, and won senior leadership approval for productization.",
+      "Built UI and backend test cases for new projects while working in Agile sprints with the product team.",
+      "Won the Driving Collaboration Award with my team in 2024, ranked first of 20 teams.",
     ],
   },
   {

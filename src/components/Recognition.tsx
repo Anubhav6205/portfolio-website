@@ -37,7 +37,7 @@ export function Recognition() {
             </>
           );
           return (
-            <Reveal as="li" key={a.title} delay={(i % 2) * 80}>
+            <Reveal as="li" key={a.title} delay={(i % 2) * 80} className={i === awards.length - 1 && awards.length % 2 === 1 ? "md:col-span-2" : ""}>
               {a.link ? (
                 <a
                   href={a.link}

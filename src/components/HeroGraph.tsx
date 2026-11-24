@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 /**
  * A faint knowledge graph behind the hero. A few nodes and edges light up in
  * sequence, like a retrieval hop walking the graph. Pure SVG and CSS.
@@ -66,12 +70,24 @@ for (let i = 0; i < path.length - 1; i++) {
 }
 
 export function HeroGraph() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  // The graph is static. Only a few nodes pulse, and they pause when the hero leaves the screen.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => el.classList.toggle("graph-paused", !entry.isIntersecting));
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <div
+      ref={ref}
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 overflow-hidden [mask-image:radial-gradient(ellipse_at_70%_40%,black_20%,transparent_75%)]"
     >
-      <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice" className="graph-layer h-[110%] w-[110%] will-change-transform">
+      <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice" className="h-full w-full">
         <g>
           {edges.map(([a, b]) => {
             const k = a < b ? `${a}-${b}` : `${b}-${a}`;

@@ -33,4 +33,11 @@ export const awards: Award[] = [
     detail: "For feature quality, design contributions and efficient solutions.",
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7305843461381832707",
   },
+  {
+    title: "Driving Collaboration Award",
+    date: "2024",
+    rank: "1st of 20 teams",
+    detail: "Team award for collaboration and delivery during my internship at Chubb.",
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7217220201283559427/",
+  },
 ];

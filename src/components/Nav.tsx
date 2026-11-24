@@ -52,7 +52,7 @@ export function Nav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled || menuOpen ? "border-b border-line bg-bg/75 backdrop-blur-xl" : "border-b border-transparent"
+        scrolled || menuOpen ? "border-b border-line bg-bg/95" : "border-b border-transparent"
       }`}
     >
       <nav className="container-x flex h-16 items-center justify-between" aria-label="Main">

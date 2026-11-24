@@ -32,20 +32,66 @@ export const profile = {
 } as const;
 
 export type Metric = {
+  /** Where the number comes from, shown above it */
+  context: string;
   value: number;
   decimals?: number;
+  /** Small word before the number, such as "about" */
+  qualifier?: string;
   prefix?: string;
-  kicker?: string;
   suffix?: string;
-  label: string;
-  note: string;
+  /** Plain-language meaning of the number */
+  headline: string;
+  /** Shown when the card opens on hover or focus */
+  detail: string;
 };
 
 export const metrics: Metric[] = [
-  { value: 75, kicker: "about", suffix: "%", label: "less manual rule authoring", note: "RAG service for product schemas" },
-  { value: 15, kicker: "from 9 months to", suffix: " days", label: "product launch cycle", note: "across 30+ insurance products" },
-  { value: 10, suffix: "+", label: "teams using the agent assistant", note: "production CrewAI system" },
-  { value: 14, label: "microservices delivered", note: "plus 2 Angular UIs" },
-  { value: 1, prefix: "#", label: "of 25 teams", note: "Chubb AI Business Hackathon 2026" },
-  { value: 0.9, decimals: 2, label: "context recall", note: "multi-hop RAG capstone, Ragas" },
+  {
+    context: "RAG schema service · Chubb",
+    value: 75,
+    qualifier: "about",
+    suffix: "%",
+    headline: "less manual effort to author product rules",
+    detail:
+      "Turns plain-English requests into product schemas with Python, FastAPI and Qdrant. Measured per rule against the previous rule configurator, client-reported across 1,000+ rules.",
+  },
+  {
+    context: "Speed-to-Market platform · Chubb",
+    value: 15,
+    suffix: " days",
+    headline: "product launch cycle, down from 9 months",
+    detail:
+      "Co-delivered the platform and owned its workflow engine, replacing Excel intake with versioned, schema-validated workflows. Measured across 30+ insurance product launches.",
+  },
+  {
+    context: "PIX agent assistant · Chubb",
+    value: 10,
+    suffix: "+",
+    headline: "teams using the multi-agent assistant",
+    detail:
+      "Led the CrewAI agent architecture. PIX turns policy documents and Excel rule files into product requirements and guides users through Product Designer workflows.",
+  },
+  {
+    context: "Backend delivery · Chubb",
+    value: 14,
+    headline: "microservices, plus 2 Angular UIs",
+    detail: "Spring Boot and Quarkus services on MongoDB, released through Jenkins CI/CD to Docker and Kubernetes.",
+  },
+  {
+    context: "AI Business Hackathon 2026",
+    value: 1,
+    prefix: "#",
+    headline: "of 25 teams",
+    detail:
+      "Team of four. Co-designed a compliance platform and built its OPA and Rego policy layer for role-based access on LLM outputs.",
+  },
+  {
+    context: "Codebase Explainer · personal",
+    value: 0.9,
+    decimals: 2,
+    headline: "context recall on a 31-question set",
+    detail:
+      "Multi-hop RAG over the Backstage codebase with LangGraph and hybrid search. Up from 0.69 with retrieval alone, measured with Ragas.",
+  },
 ];

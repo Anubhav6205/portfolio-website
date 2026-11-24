@@ -10,7 +10,7 @@ export function Skills() {
       label="Skills"
       title={
         <>
-          Tools I have shipped with, <Accent>not a wishlist.</Accent>
+          What I <Accent>build with.</Accent>
         </>
       }
       intro="Every item here shows up in the experience or projects above."
