@@ -18,9 +18,25 @@ function Marker({ kind }: { kind: Role["kind"] }) {
   );
 }
 
-function Entry({ role, i }: { role: Role; i: number }) {
+/** Line from this entry's marker to the next one. The first segment starts in the accent
+ *  colour and the one into the last entry fades out, so the line ends at the college. */
+function segmentClass(i: number, total: number) {
+  if (i === total - 1) return null;
+  if (i === total - 2) return "bg-gradient-to-b from-line-strong to-transparent";
+  if (i === 0) return "bg-gradient-to-b from-accent/60 to-line-strong";
+  return "bg-line-strong";
+}
+
+function Entry({ role, i, total }: { role: Role; i: number; total: number }) {
+  const segment = segmentClass(i, total);
   return (
     <Reveal as="li" delay={60} className="relative grid gap-4 pb-14 last:pb-0 md:grid-cols-[200px_1fr] md:gap-8">
+      {segment && (
+        <span
+          aria-hidden="true"
+          className={`absolute bottom-[-14px] left-[13px] top-[14px] w-px md:left-[245px] ${segment}`}
+        />
+      )}
       <div className="hidden pt-1 md:block">
         <p className="font-mono text-xs uppercase tracking-[0.12em] text-muted">{role.period}</p>
       </div>
@@ -62,12 +78,8 @@ export function Timeline() {
       intro="My work at Chubb, from intern to Senior Software Engineer, newest first."
     >
       <ol className="relative">
-        <span
-          aria-hidden="true"
-          className="absolute bottom-2 left-[13px] top-2 w-px bg-gradient-to-b from-accent/60 via-line-strong to-transparent md:left-[245px]"
-        />
         {entries.map((r, i) => (
-          <Entry key={r.title + r.period} role={r} i={i} />
+          <Entry key={r.title + r.period} role={r} i={i} total={entries.length} />
         ))}
       </ol>
     </Section>
