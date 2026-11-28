@@ -1,5 +1,5 @@
-import { GraduationCap, Sparkles } from "lucide-react";
-import { nextStep, timeline, type Role } from "@/content/experience";
+import { GraduationCap } from "lucide-react";
+import { timeline, type Role } from "@/content/experience";
 import { Accent, Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { RoleBullets } from "./RoleBullets";
@@ -9,12 +9,6 @@ function Marker({ kind }: { kind: Role["kind"] }) {
     return (
       <span className="grid h-7 w-7 place-items-center rounded-full border border-line-strong bg-bg text-muted">
         <GraduationCap className="h-3.5 w-3.5" />
-      </span>
-    );
-  if (kind === "next")
-    return (
-      <span className="grid h-7 w-7 place-items-center rounded-full border border-dashed border-accent bg-bg text-accent">
-        <Sparkles className="h-3.5 w-3.5" />
       </span>
     );
   return (
@@ -54,7 +48,7 @@ function Entry({ role, i }: { role: Role; i: number }) {
 }
 
 export function Timeline() {
-  const entries = [nextStep, ...timeline];
+  const entries = timeline;
   return (
     <Section
       id="experience"

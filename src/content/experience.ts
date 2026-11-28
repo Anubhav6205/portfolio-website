@@ -3,7 +3,7 @@ export type Role = {
   org: string;
   period: string;
   start: string;
-  kind: "work" | "education" | "next";
+  kind: "work" | "education";
   summary?: string;
   bullets: string[];
   tags?: string[];
@@ -66,14 +66,3 @@ export const timeline: Role[] = [
     bullets: [],
   },
 ];
-
-export const nextStep: Role = {
-  title: "Next",
-  org: "AI Engineer or Applied AI role",
-  period: "Open now",
-  start: "Next",
-  kind: "next",
-  summary:
-    "Looking for a team that ships agents, retrieval and evaluation to real users. Based in Hyderabad.",
-  bullets: [],
-};
